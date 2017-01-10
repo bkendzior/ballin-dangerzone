@@ -24,12 +24,40 @@ tddium:
         - "a=0; while [ $a -lt 60 ]; do echo $a; sleep 1; a=`expr $a + 1`; done"
         - "a=0; while [ $a -lt 60 ]; do echo $a; sleep 1; a=`expr $a + 1`; done"
         - "a=0; while [ $a -lt 60 ]; do echo $a; sleep 1; a=`expr $a + 1`; done"
+      notify:
+      - channel: email
+        message: 'TERST build of %repo%/%branch% finished in %duration% with %error-count% error(s) and %passed-count% success(es)'
+        recipients: committers
+        trigger-on: failed
+        body: '
+        <ul>
+          <li>%failed-count%</li>
+          <li>%failed-name-list%</li>
+          <li>%error-name-list%</li>
+        </ul>
+        %failed-name-list%
+        %default-email-body%
+        '
     default_3:
       tests:
         - "a=0; while [ $a -lt 60 ]; do echo $a; sleep 1; a=`expr $a + 1`; done"
         - "a=0; while [ $a -lt 60 ]; do echo $a; sleep 1; a=`expr $a + 1`; done"
         - "a=0; while [ $a -lt 60 ]; do echo $a; sleep 1; a=`expr $a + 1`; done"
         - "a=0; while [ $a -lt 60 ]; do echo $a; sleep 1; a=`expr $a + 1`; done"
+      notify:
+      - channel: email
+        message: 'TERST2 build of %repo%/%branch% finished in %duration% with %error-count% error(s) and %passed-count% success(es)'
+        recipients: committers
+        trigger-on: failed
+        body: '
+        <ul>
+          <li>%failed-count%</li>
+          <li>%failed-name-list%</li>
+          <li>%error-name-list%</li>
+        </ul>
+        %failed-name-list%
+        %default-email-body%
+        '
   plan:
     default_0:
       default_1:
