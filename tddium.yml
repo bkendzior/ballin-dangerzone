@@ -27,7 +27,7 @@ tddium:
       notify:
       - channel: email
         message: 'TERST build of %repo%/%branch% finished in %duration% with %error-count% error(s) and %passed-count% success(es)'
-        recipients: committers
+        recipients: 'brian@solanolabs.com'
         trigger-on: failed
         body: '
         <ul>
@@ -47,7 +47,7 @@ tddium:
       notify:
       - channel: email
         message: 'TERST2 build of %repo%/%branch% finished in %duration% with %error-count% error(s) and %passed-count% success(es)'
-        recipients: committers
+        recipients: 'brian@solanolabs.com'
         trigger-on: failed
         body: '
         <ul>
